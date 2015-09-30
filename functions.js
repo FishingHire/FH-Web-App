@@ -3,8 +3,13 @@ $( document ).ready(function() {
     console.log( "Parse initialized" );
     Parse.initialize("a3hE9Y9qVMyx6R5bbzcBPto8F5b7H0PdfUikKrsR", "o2vvcrZEKYHBvQjoo5d1VKgOoMwPIevhQr3NZO0i");
 
+    var user = Parse.User.current();
+    console.log("User " + user);
+
   $('#btn').click(function() {
-      createUser();
+      if (user == null) {
+        createUser();
+      }
       createListing();
     });
 
@@ -19,6 +24,7 @@ function createListing() {
     var lastname = $('#lname').val();
     var email = $('#email').val();
     var location = $('#autocomplete').val();
+    var user = Parse.User.current();
 
     var Listing = Parse.Object.extend("Listing");
     var listing = new Listing();
@@ -27,7 +33,8 @@ function createListing() {
           fName: firstname,
           lName: lastname,
           email: email,
-          location: location
+          location: location,
+          user: user
         }, 
         {
           success: function(object) {
