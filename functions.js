@@ -6,9 +6,20 @@ $( document ).ready(function() {
     var user = Parse.User.current();
     console.log("User " + user);
 
-  $('#btn').click(function() {
+  $('#listingbtn').click(function() {
+      if (user == null) {
+        window.location.replace("file:///Users/Greg/Desktop/FH-Web-App/register.html");
+      }
+      createListing();
+    });
+
+  $('#registerbtn').click(function() {
       if (user == null) {
         createUser();
+        window.location.replace("file:///Users/Greg/Desktop/FH-Web-App/index.html");
+      }
+      else {
+        window.location.replace("file:///Users/Greg/Desktop/FH-Web-App/index.html");
       }
       createListing();
     });
@@ -59,6 +70,7 @@ function createListing() {
         }
     });
 
+    $('#autocomplete').val("");
 
 }
 

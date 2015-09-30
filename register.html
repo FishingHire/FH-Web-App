@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Add Your Listing</title>
+  <title>Register</title>
   <meta name="description" content="My Parse App">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/reset.css">
@@ -15,24 +15,19 @@
 <body>
   
   <div id="main">
-    <div class="username" style="float:right; padding: 25px; margin-bottom: 25px;"></div>
-    <div>
-    <h1 style="text-align:center;">Add Your Listing</h1>
-    </div>
+    <h1>Register</h1>
 
     <div class="form">
-
     	<input type="text" class="inputfield" id="fname" name="fname" placeholder="Enter First Name"><br>
     	<input type="text" class="inputfield" id="lname" name="lname" placeholder="Enter Last Name"><br>
     	<input type="text" class="inputfield" id="email" name="email" placeholder="Enter Email Address"><br>
-    	<div id="locationField">
+    	<div id="locationField" style="display:none;">
       		<input id="autocomplete" placeholder="Enter your address"
              onFocus="geolocate()" type="text"></input>
     	</div>
     	<div id="buttonholder">
-        <button id="listingbtn" class="btn" value="Submit">Submit</button>
+        <button id="registerbtn" class="btn" value="Submit">Submit</button>
     </div>
-
     </div>
   </div>
 
