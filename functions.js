@@ -5,6 +5,7 @@ $( document ).ready(function() {
 
   $('#btn').click(function() {
       createUser();
+      createListing();
     });
 
   isLoggedIn();
@@ -17,6 +18,7 @@ function createListing() {
     var firstname = $('#fname').val();
     var lastname = $('#lname').val();
     var email = $('#email').val();
+    var location = $('#autocomplete').val();
 
     var Listing = Parse.Object.extend("Listing");
     var listing = new Listing();
@@ -24,7 +26,8 @@ function createListing() {
         {
           fName: firstname,
           lName: lastname,
-          email: email
+          email: email,
+          location: location
         }, 
         {
           success: function(object) {
@@ -43,12 +46,14 @@ function createUser() {
   var firstname = $('#fname').val();
   var lastname = $('#lname').val();
   var email = $('#email').val();
+  var location = $('#autocomplete').val();
 
   var user = new Parse.User();
   user.set("firstname", firstname);
   user.set("lastname", lastname);
   user.set("email", email);
   user.set("username", email);
+  user.set("location", location);
   user.set("password", "password");
 
 
@@ -82,6 +87,7 @@ function isLoggedIn() {
     if (currentUser) {
     // do stuff with the user
     console.log(name + " IN SESSION!");
+    $('.username').append(name);
     } else {
     // show the signup or login page
     console.log("NOT LOGGED IN!");
